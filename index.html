@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HONESTY IS THE BEST POLICY</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: hotpink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+    }
+
+
+    .card {
+      background-color: deeppink;
+      border-radius: 30px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(2, 2, 2, 2);
+      width: 300px;
+      height: 460px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid white;
+    }
+
+    .card img {
+      height: 60%;
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 2px solid white;
+      box-shadow: 0 4px 20px rgba(0.8, 0.8, 0.8, 0.8);
+    }
+
+    h1 {
+      color: white;
+      margin-bottom: 30px;
+      border-radius: 20px;
+    }
+
+    .btn {
+      padding: 10px 25px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      transition: top 0.2s, left 0.2s;
+    }
+
+    .yes {
+      background-color: hotpink;
+      color: white;
+      bottom: 20px;
+      left: 20px;
+      border: 2px solid black;
+    }
+
+    .no {
+      background-color: hotpink;
+      color: white;
+      bottom: 20px;
+      right: 20px;
+      border: 2px solid black;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <img src="paul.jpeg" alt="Do you like me?">
+    <h1>POGI BA AKO?</h1>
+    <a href="hello.html">
+      <button class="btn yes">YES</button>
+    </a>
+    <button class="btn no" id="noBtn">NO</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const card = document.getElementById('card');
+
+    noBtn.addEventListener('click', () => {
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+      const cardWidth = card.clientWidth;
+      const cardHeight = card.clientHeight;
+
+      const maxX = cardWidth - btnWidth;
+      const maxY = cardHeight - btnHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+      noBtn.style.bottom = "auto"; // clear bottom/right so it doesn’t conflict
+      noBtn.style.right = "auto";
+    });
+  </script>
+</body>
+</html>
